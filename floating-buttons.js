@@ -19,7 +19,7 @@ class FloatingButtons extends HTMLElement {
             mainButton: { id: 'mainButton', label: '+', title: 'Rychlé mapy' },
             verticalButtons: [
                 { id: 'verticalButton1', label: '<img src="img/zcu.png">', title: 'Verical button'}, // Example image button
-                { id: 'verticalButton2', label: '2' , title: ''},
+                { id: 'verticalButton2', label: '<img src="icons/arrow.svg">' , title: ''},
                 { id: 'verticalButton3', label: '3' , title: ''}
             ],
             horizontalButtons: [
@@ -98,6 +98,11 @@ class FloatingButtons extends HTMLElement {
             }
             .horizontal-button:hover {
                 background-color: #27ae60;
+            }
+            .vertical-button img, .horizontal-button img {
+                width: 90%;
+                height: 90%;
+                object-fit: contain;
             }
         `;
         shadow.appendChild(style);
