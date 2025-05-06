@@ -10,8 +10,9 @@ class FloatingButtons extends HTMLElement {
         const SPACING = BUTTON_SIZE + GAP; // Spacing between buttons
         const VERTICAL_OFFSET = (MAIN_BUTTON_SIZE - BUTTON_SIZE) / 2; // Offset for vertical buttons - center alignment
         // const VERTICAL_OFFSET = 0; // Offset for vertical buttons - right alignment
-        const OFFSET = 20; // Offset from bottom and right edges of the screen
-        const BASE_OFFSET = OFFSET + MAIN_BUTTON_SIZE - BUTTON_SIZE; // Space between main button and vertical buttons
+        const RIGHT_OFFSET = 20; // Offset from right edge of the screen
+        const BOTTOM_OFFSET = 20; // Offset from bottom edge of the screen
+        const BASE_OFFSET = BOTTOM_OFFSET + MAIN_BUTTON_SIZE - BUTTON_SIZE; // Space between main button and vertical buttons
 
         // Button configuration - this can be modified to add more buttons or change their properties (title, label, etc.)
         // Simply add or remove more buttons in the verticalButtons and horizontalButtons arrays
@@ -50,8 +51,8 @@ class FloatingButtons extends HTMLElement {
             }
             .main-button {
                 position: fixed;
-                bottom: ${OFFSET}px;
-                right: ${OFFSET}px;
+                bottom: ${BOTTOM_OFFSET}px;
+                right: ${RIGHT_OFFSET}px;
                 width: ${MAIN_BUTTON_SIZE}px;
                 height: ${MAIN_BUTTON_SIZE}px;
                 background-color: #3498db;
@@ -162,11 +163,11 @@ class FloatingButtons extends HTMLElement {
         function positionButtons(buttons, basePosition, spacing, isVertical = true) {
             buttons.forEach((button, index) => {
                 if (isVertical) {
-                    button.style.right = `${OFFSET + VERTICAL_OFFSET}px`;
+                    button.style.right = `${RIGHT_OFFSET + VERTICAL_OFFSET}px`;
                     button.style.bottom = `${BASE_OFFSET + spacing * (index + 1)}px`;
                 } else {
                     button.style.bottom = `${basePosition.bottom}px`;
-                    button.style.right = `${OFFSET + VERTICAL_OFFSET + spacing * (index + 1)}px`;
+                    button.style.right = `${RIGHT_OFFSET + VERTICAL_OFFSET + spacing * (index + 1)}px`;
                 }
                 button.style.display = 'flex';
             });
