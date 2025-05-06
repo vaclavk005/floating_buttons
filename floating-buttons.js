@@ -105,6 +105,9 @@ class FloatingButtons extends HTMLElement {
                 height: 90%;
                 object-fit: contain;
             }
+            .vertical-button img:hover {
+                background-color:rgb(43, 162, 192);
+            }
         `;
         shadow.appendChild(style);
 
